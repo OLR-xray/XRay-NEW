@@ -33,8 +33,6 @@ extern bool shared_str_initialized;
 
 #include <dbghelp.h>						// MiniDump flags
 
-#define USE_BUG_TRAP
-
 #ifdef USE_BUG_TRAP
 #	include "BugTrap.h"						// for BugTrap functionality
 #	pragma comment(lib,"BugTrap.lib")		// Link to ANSI DLL
@@ -679,8 +677,6 @@ LONG WINAPI UnhandledFilter	(_EXCEPTION_POINTERS *pExceptionInfo)
     }
 #else
     typedef int		(__cdecl * _PNH)( size_t );
-    _CRTIMP int		__cdecl _set_new_mode( int );
-    _CRTIMP _PNH	__cdecl _set_new_handler( _PNH );
 
     void	xrDebug::_initialize		()
     {

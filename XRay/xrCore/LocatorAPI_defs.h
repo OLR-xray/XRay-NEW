@@ -42,8 +42,10 @@ public:
 	};
 #	define _FINDDATA_T	std::_finddata_t
 #else
+//find_data
+#include "corecrt_io.h"
 	struct 				_finddata_t;
-#	define _FINDDATA_T	_finddata_t
+	#define _FINDDATA_T _finddata_t 
 #endif
 
 struct XRCORE_API FS_File{

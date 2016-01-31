@@ -2,6 +2,8 @@
 #define xrCoreH
 #pragma once
 
+#pragma comment(lib, "legacy_stdio_definitions.lib")
+
 #if (defined(_DEBUG) || defined(MIXED) || defined(DEBUG)) && !defined(FORCE_NO_EXCEPTIONS)
 	// "debug" or "mixed"
 	#if !defined(_CPPUNWIND)

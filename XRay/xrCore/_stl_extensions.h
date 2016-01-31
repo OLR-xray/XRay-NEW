@@ -66,6 +66,7 @@ public:
 	typedef T&			reference;
 	typedef const T&	const_reference;
 	typedef T			value_type;
+#define _FARQ
 
 public:
 	template<class _Other>	
@@ -84,6 +85,7 @@ public:
 							void					construct		(pointer p, const T& _Val)				{	std::_Construct(p, _Val);	}
 							void					destroy			(pointer p)								{	std::_Destroy(p);			}
 							size_type				max_size		() const								{	size_type _Count = (size_type)(-1) / sizeof (T);	return (0 < _Count ? _Count : 1);	}
+#undef _FARQ
 };
 
 struct xr_allocator {

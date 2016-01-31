@@ -60,7 +60,7 @@ void CSoundRender_CoreD::_initialize	(u64 window)
 	bPresent			= FALSE;
 
 	// DirectX device
-	if( FAILED			( EAXDirectSoundCreate8( NULL, &pDevice, NULL ) ) )
+	//if( FAILED			( EAXDirectSoundCreate8( NULL, &pDevice, NULL ) ) )
 		if( FAILED		( DirectSoundCreate8( NULL, &pDevice, NULL ) ) )	return;
 	if( FAILED			( pDevice->SetCooperativeLevel(  (HWND)window, DSSCL_PRIORITY ) ) )	
 	{

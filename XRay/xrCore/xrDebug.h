@@ -2,6 +2,8 @@
 #define xrDebugH
 #pragma once
 
+#include <new.h>
+
 typedef	void		crashhandler		(void);
 typedef	void		on_dialog			(bool before);
 

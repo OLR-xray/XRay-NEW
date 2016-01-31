@@ -234,3 +234,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+#stalker
+gamedata.db*
+bin_*_*/
+libraries/
+_appdata_/
