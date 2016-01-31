@@ -90,35 +90,41 @@
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\SDK\OpenAL\OpenAL-Windows\OpenAL32\Include;$(SolutionDir)..\SDK\OpenAL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\SDK\OpenAL\OpenAL-Windows\OpenAL32\Include;$(SolutionDir)..\SDK\OpenAL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\SDK\OpenAL\OpenAL-Windows\OpenAL32\Include;$(SolutionDir)..\SDK\OpenAL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\SDK\OpenAL\OpenAL-Windows\OpenAL32\Include;$(SolutionDir)..\SDK\OpenAL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test_Clang|x64'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\SDK\OpenAL\OpenAL-Windows\OpenAL32\Include;$(SolutionDir)..\SDK\OpenAL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test_Clang|Win32'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\SDK\OpenAL\OpenAL-Windows\OpenAL32\Include;$(SolutionDir)..\SDK\OpenAL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
@@ -290,12 +296,14 @@
     <Link>
       <ImportLibrary>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\$(ProjectName).lib</ImportLibrary>
       <OutputFile>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\wrap_oal.dll</OutputFile>
+      <AdditionalDependencies>ALc.lib;ALu.lib;dxguid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test_Clang|Win32'">
     <Link>
       <ImportLibrary>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\$(ProjectName).lib</ImportLibrary>
       <OutputFile>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\wrap_oal.dll</OutputFile>
+      <AdditionalDependencies>ALc.lib;ALu.lib;dxguid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

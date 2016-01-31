@@ -99,6 +99,8 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <ExecutablePath />
+    <IncludePath>$(SolutionDir)..\xrCore;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -106,26 +108,38 @@
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <ExecutablePath />
+    <IncludePath>$(SolutionDir)..\xrCore;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <ExecutablePath />
+    <IncludePath>$(SolutionDir)..\xrCore;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <ExecutablePath />
+    <IncludePath>$(SolutionDir)..\xrCore;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-    <OutDir>x:\binaries\</OutDir>
-    <IntDir>x:\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath />
+    <IncludePath>$(SolutionDir)..\xrCore;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath />
+    <IncludePath>$(SolutionDir)..\xrCore;$(IncludePath)</IncludePath>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

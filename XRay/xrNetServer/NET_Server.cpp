@@ -216,7 +216,7 @@ BOOL IPureServer::Connect(LPCSTR options)
 	if (strchr(options,'/'))		strcpy(session_options, strchr(options,'/')+1);
 	if (strstr(options, "psw="))
 	{
-		char* PSW = strstr(options, "psw=") + 4;
+		char* PSW = (char*)strstr(options, "psw=") + 4;
 		if (strchr(PSW, '/')) 
 			strncpy(password_str, PSW, strchr(PSW, '/') - PSW);
 		else
@@ -224,7 +224,7 @@ BOOL IPureServer::Connect(LPCSTR options)
 	}
 	if (strstr(options, "maxplayers="))
 	{
-		char* sMaxPlayers = strstr(options, "maxplayers=") + 11;
+		char* sMaxPlayers = (char*)strstr(options, "maxplayers=") + 11;
 		string64 tmpStr = "";
 		if (strchr(sMaxPlayers, '/')) 
 			strncpy(tmpStr, sMaxPlayers, strchr(sMaxPlayers, '/') - sMaxPlayers);
@@ -240,7 +240,7 @@ BOOL IPureServer::Connect(LPCSTR options)
 	u32 dwServerPort = BASE_PORT_LAN_SV;
 	if (strstr(options, "portsv="))
 	{
-		char* ServerPort = strstr(options, "portsv=") + 7;
+		char* ServerPort = (char*)strstr(options, "portsv=") + 7;
 		string64 tmpStr = "";
 		if (strchr(ServerPort, '/')) 
 			strncpy(tmpStr, ServerPort, strchr(ServerPort, '/') - ServerPort);
@@ -709,7 +709,7 @@ bool			IPureServer::DisconnectAddress	(char* Address)
 
 	if (!NumPlayers) return false;
 
-	for (it = 0; it<NumPlayers; it++)
+	for (u32 it = 0; it<NumPlayers; it++)
 	{
 		DisconnectClient(PlayersToDisconnect[it]);
 	};

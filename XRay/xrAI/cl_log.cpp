@@ -3,6 +3,7 @@
 #include "log.h"
 #include <time.h>
 #include <mmsystem.h>
+#include <WinBase.h>
 
 //************************* Log-thread data
 static xrCriticalSection	csLog
@@ -122,7 +123,8 @@ void Phase			(const char *phase_name)
 HWND logWindow=0;
 void logThread(void *dummy)
 {
-	SetProcessPriorityBoost	(GetCurrentProcess(),TRUE);
+#pragma todo("на XP раскоментить")
+	//SetProcessPriorityBoost	(GetCurrentProcess(),TRUE);
 
 	logWindow = CreateDialog(
 		HINSTANCE(GetModuleHandle(0)),

@@ -102,14 +102,14 @@
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)..\XRay\xrCore\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)..\XRay\xrCore\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
@@ -117,21 +117,21 @@
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)..\XRay\xrCore\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IncludePath>$(SolutionDir)..\XRay\xrCore\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)..\XRay\xrCore\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -139,7 +139,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)..\XRay\xrCore\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

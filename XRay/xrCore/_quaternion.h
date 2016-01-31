@@ -229,7 +229,7 @@ public:
 	}
 
 	// validates numerical stability
-	IC	const BOOL	isValid(void) 
+	IC	const BOOL	isValid(void) const
 	{
 		if ((w * w) < 0.0f)	return false;
 		if ((x * x) < 0.0f)	return false;
@@ -256,7 +256,7 @@ public:
 		m =  _sqrt(magnitude());
 
 		if (( m < QZERO_TOLERANCE ) && ( m > -QZERO_TOLERANCE ))
-			return;
+			return *this;
 
 		one_over_magnitude = 1.0f / m;
 
@@ -414,7 +414,7 @@ public:
 		x = t*Q.x;
 		y = t*Q.y;
 		z = t*Q.z;
-		w = .5f*_log(n+Q.w*Q.w);
+		w = .5f* log(n+Q.w*Q.w);
 		return *this;
 	}
 	IC	SelfRef	exp(SelfCRef Q)

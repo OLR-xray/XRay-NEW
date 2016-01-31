@@ -184,7 +184,8 @@
     <ExtensionsToDeleteOnClean>*.idb%3b*.obj%3b*.ilk%3b*.pdb%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.bat%3b$(TargetPath)</ExtensionsToDeleteOnClean>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExtensionsToDeleteOnClean>*.idb%3b*.obj%3b*.ilk%3b*.pdb%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.bat%3b$(TargetPath)</ExtensionsToDeleteOnClean>
@@ -192,55 +193,82 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-    <OutDir>x:\binaries\</OutDir>
-    <IntDir>x:\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dedicated|Win32'">
-    <OutDir>x:\binaries\dedicated\</OutDir>
-    <IntDir>x:\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <ExtensionsToDeleteOnClean>*.idb%3b*.obj%3b*.ilk%3b*.pdb%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.bat%3b$(TargetPath)</ExtensionsToDeleteOnClean>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Dedicated|x64'">
     <ExtensionsToDeleteOnClean>*.idb%3b*.obj%3b*.ilk%3b*.pdb%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.bat%3b$(TargetPath)</ExtensionsToDeleteOnClean>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed_Dedicated|Win32'">
-    <OutDir>x:\binaries\dedicated\</OutDir>
-    <IntDir>x:\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed_Dedicated|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dedicated|Win32'">
-    <OutDir>x:\binaries\dedicated\</OutDir>
-    <IntDir>x:\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Dedicated|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir).\xrCore;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\Xiph\libtheora\include;$(SolutionDir)..\SDK\Xiph\libogg\include;$(SolutionDir).\xrLua\src;$(SolutionDir)..\SDK\luabind\luabind\;$(SolutionDir)..\SDK\boost_1_30_0;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\Win32;$(SolutionDir)..\bin_$(Configuration)_$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -273,7 +301,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static_d.lib;theora_static_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmtd libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -327,7 +355,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static_d.lib;theora_static_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmtd libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -378,7 +406,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -431,7 +459,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -482,7 +510,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -539,7 +567,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -594,7 +622,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static_d.lib;theora_static_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmtd libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -646,7 +674,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static_d.lib;theora_static_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmtd libcd;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -695,7 +723,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -746,7 +774,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -795,7 +823,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -848,7 +876,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>msacm32.lib;vfw32.lib;ogg_static.lib;theora_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msacm32.lib;vfw32.lib;libogg_static.lib;libtheora_static.lib;xrCore.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>

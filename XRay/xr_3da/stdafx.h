@@ -53,6 +53,7 @@
 extern ENGINE_API CInifile *pGameIni;
 
 // TODO: reference additional headers your program requires here
+
 #pragma comment( lib, "xrCore.lib"	)
 #pragma comment( lib, "xrCDB.lib"	)
 #pragma comment( lib, "xrSound.lib"	)

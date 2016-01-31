@@ -125,8 +125,8 @@
     <IncludePath>$(SolutionDir)..\SDK\dxsdk\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
-    <OutDir>x:\binaries\</OutDir>
-    <IntDir>x:\intermediate\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)..\SDK\dxsdk\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(LibraryPath)</LibraryPath>
@@ -135,6 +135,8 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)..\SDK\dxsdk\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

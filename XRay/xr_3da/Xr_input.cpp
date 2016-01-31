@@ -171,7 +171,7 @@ void CInput::KeyUpdate	( )
 		if ( KBState[key])	cbStack.back()->IR_OnKeyboardPress	( key );
 		if (!KBState[key])	cbStack.back()->IR_OnKeyboardRelease	( key );
 	}
-	for ( i = 0; i < COUNT_KB_BUTTONS; i++ )
+	for ( u32 i = 0; i < COUNT_KB_BUTTONS; i++ )
 		if (KBState[i]) cbStack.back()->IR_OnKeyboardHold( i );
 
 	if(!b_altF4 && iGetAsyncKeyState(DIK_F4) && (iGetAsyncKeyState(DIK_RMENU) || iGetAsyncKeyState(DIK_LMENU)))

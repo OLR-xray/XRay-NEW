@@ -9,7 +9,7 @@
 #pragma warning(pop)
 #include "ETextureParams.h"
 #include "dds.h"
-#include "d3dx.h"
+#include "d3d.h"
 
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        u32  ul_reason_for_call, 

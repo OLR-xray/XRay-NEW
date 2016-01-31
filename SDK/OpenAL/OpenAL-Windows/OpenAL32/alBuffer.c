@@ -28,6 +28,9 @@
 #include "alError.h"
 #include "alBuffer.h"
 
+#undef ALAPI
+#define ALAPI
+
 #ifdef _DEBUG
  char szDebug[256];
 #endif

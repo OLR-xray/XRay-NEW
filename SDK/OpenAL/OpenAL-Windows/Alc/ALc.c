@@ -31,6 +31,10 @@
 #include "AL/al.h"
 #include "AL/alc.h"
 
+#undef ALCAPI
+#define ALCAPI 
+
+
 ///////////////////////////////////////////////////////
 // DEBUG INFORMATION
 

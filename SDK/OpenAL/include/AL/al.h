@@ -722,3 +722,6 @@ typedef void           (AL_APIENTRY *LPALDISTANCEMODEL)( ALenum distanceModel );
 #endif
 
 #endif /* AL_AL_H */
+
+#undef ALAPI
+#define ALAPI

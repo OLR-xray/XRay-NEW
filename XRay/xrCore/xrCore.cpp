@@ -6,7 +6,10 @@
 #include <mmsystem.h>
 #include <objbase.h>
 #include "xrCore.h"
- 
+
+template struct _quaternion<float>;
+template struct _quaternion<double>;
+
 #pragma comment(lib,"winmm.lib")
 
 #ifdef DEBUG
