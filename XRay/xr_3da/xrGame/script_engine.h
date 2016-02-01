@@ -20,6 +20,8 @@ extern "C" {
 };
 //#define DBG_DISABLE_SCRIPTS
 
+#include "script_engine_space.h"
+
 namespace ScriptEngine {
 	enum EScriptProcessors;
 };
