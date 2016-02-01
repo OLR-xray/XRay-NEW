@@ -22,6 +22,8 @@
 	#pragma warning(disable:4530)
 #endif
 
+#define BOOST_NO_EXCEPTIONS
+
 #if !defined(_MT)
 	// multithreading disabled
 	#error Please enable multi-threaded library...

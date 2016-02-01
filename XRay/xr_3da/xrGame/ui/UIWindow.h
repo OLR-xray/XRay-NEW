@@ -35,9 +35,9 @@ public:
 							{	VERIFY(1==n);
 								return (pointer) ui_allocator.create();	
 							};
-							char _FARQ *			_Charalloc		(size_type n)							
+							char*			__charalloc		(size_type n)							
 							{	VERIFY	(1==n);
-								return	(char _FARQ *) ui_allocator.create();	
+								return	(char*) ui_allocator.create();	
 							};
 							void					deallocate		(pointer p, size_type n) const			
 							{	
@@ -45,7 +45,7 @@ public:
 								_12b* p_ = (_12b*)p;
 								ui_allocator.destroy	(p_);				
 							}
-							void					deallocate		(void _FARQ* p, size_type n) const		
+							void					deallocate		(void* p, size_type n) const		
 							{	
 								VERIFY(1==n);
 								_12b* p_ = (_12b*)p;
