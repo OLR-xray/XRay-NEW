@@ -5,6 +5,8 @@
 #ifndef IC
 #define IC __forceinline
 #endif
+#undef min
+#undef max
 
 template <class T>
 struct _vector3 {
