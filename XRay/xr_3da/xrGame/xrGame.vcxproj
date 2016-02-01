@@ -104,7 +104,7 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(SolutionDir)xrODE\include;$(SolutionDir)xrLua\src;$(SolutionDir)..\SDK\luabind\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExtensionsToDeleteOnClean>*.idb%3b*.obj%3b*.ilk%3b*.pdb%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.bat%3b$(TargetPath)</ExtensionsToDeleteOnClean>
@@ -113,20 +113,20 @@
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LibraryPath>$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(SolutionDir)xrODE\include;$(SolutionDir)xrLua\src;$(SolutionDir)..\SDK\luabind\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|Win32'">
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(SolutionDir)xrODE\include;$(SolutionDir)xrLua\src;$(SolutionDir)..\SDK\luabind\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Mixed|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(SolutionDir)xrODE\include;$(SolutionDir)xrLua\src;$(SolutionDir)..\SDK\luabind\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,14 +134,14 @@
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(SolutionDir)xrODE\include;$(SolutionDir)xrLua\src;$(SolutionDir)..\SDK\luabind\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin_$(Configuration)_$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\intermediate\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LibraryPath>$(SolutionDir)..\SDK\dxsdk\Lib\$(Platform)\;$(SolutionDir)..\libraries\$(Configuration)\$(Platform)\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)xrCore\;$(SolutionDir)..\SDK\dxsdk\Include;$(SolutionDir)..\SDK\loki;$(SolutionDir)..\SDK\boost\;$(SolutionDir)xrODE\include;$(SolutionDir)xrLua\src;$(SolutionDir)..\SDK\luabind\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

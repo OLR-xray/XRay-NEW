@@ -18,6 +18,7 @@ light::light		(void)	: ISpatial(g_SpatialSpace)
 	frame_render	= 0;
 
 #if RENDER==R_R2
+	virtual_size	= .1f; // Ray Twitty (aka Shadows): по умолчанию надо 0.1, чтобы не пришлось вызывать для каждого лайта установку виртуального размера
 	ZeroMemory		(omnipart,sizeof(omnipart));
 	s_spot			= NULL;
 	s_point			= NULL;
@@ -57,7 +58,7 @@ void light::set_texture		(LPCSTR name)
 #pragma todo				("Only shadowed spot implements projective texture")
 	string256				temp;
 	s_spot.create			(RImplementation.Target->b_accum_spot,strconcat(temp,"r2\\accum_spot_",name),name);
-	s_spot.create			(RImplementation.Target->b_accum_spot,strconcat(temp,"r2\\accum_spot_",name),name);
+	s_point.create			(RImplementation.Target->b_accum_spot,strconcat(temp,"r2\\accum_spot_",name),name); // why not s_point ?
 }
 #endif
 
@@ -76,7 +77,6 @@ void light::set_active		(bool a)
 		spatial_register					();
 		spatial_move						();
 		//Msg								("!!! L-register: %X",u32(this));
-
 
 #ifdef DEBUG
 		Fvector	zero = {0,-1000,0}			;
@@ -252,7 +252,7 @@ void	light::xform_calc			()
 static	Fvector cmNorm[6]	= {{0.f,1.f,0.f}, {0.f,1.f,0.f}, {0.f,0.f,-1.f},{0.f,0.f,1.f}, {0.f,1.f,0.f}, {0.f,1.f,0.f}};
 static	Fvector cmDir[6]	= {{1.f,0.f,0.f}, {-1.f,0.f,0.f},{0.f,1.f,0.f}, {0.f,-1.f,0.f},{0.f,0.f,1.f}, {0.f,0.f,-1.f}};
 
-void	light::export		(light_Package& package)
+void	light::exportL		(light_Package& package)
 {
 	if (flags.bShadow)			{
 		switch (flags.type)	{
@@ -270,6 +270,10 @@ void	light::export		(light_Package& package)
 						L->set_rotation		(cmDir[f],	R);
 						L->set_cone			(PI_DIV_2);
 						L->set_range		(range);
+						/************************************************** added by Ray Twitty (aka Shadows) START **************************************************/
+						// надо еще экспортировать
+						L->set_virtual_size	(virtual_size);
+						/*************************************************** added by Ray Twitty (aka Shadows) END ***************************************************/
 						L->set_color		(color);
 						L->spatial.sector	= spatial.sector;	//. dangerous?
 						L->s_spot			= s_spot	;
