@@ -39,7 +39,6 @@ class CALifeSmartTerrainTask;
 	DEFINE_LUA_WRAPPER_METHOD_R2P1_V1	(STATE_Write,	NET_Packet)\
 	DEFINE_LUA_WRAPPER_METHOD_R2P1_V2	(STATE_Read,	NET_Packet,	u16)\
 	DEFINE_LUA_WRAPPER_METHOD_R2P2_V2	(FillProps,		LPCSTR,	PropItemVec)\
-	DEFINE_LUA_WRAPPER_METHOD_R2P1_V4	(OnEvent,		NET_Packet, u16, u32, ClientID)\
 	DEFINE_LUA_WRAPPER_METHOD_0			(init,			CSE_Abstract*)
 
 #define INHERIT_ALIFE \
@@ -109,7 +108,7 @@ template <typename T>
 struct CWrapperPure : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperPure<T>				self_type;
-	CWrapperPure						(LPCSTR section) : inherited(section){}
+	CWrapperPure(LPCSTR section) : inherited(section) {}
 	INHERIT_PURE;
 };
 
@@ -118,7 +117,7 @@ struct CWrapperAbstract : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperAbstract<T>			self_type;
 
-	CWrapperAbstract					(LPCSTR section) : inherited(section){}
+	CWrapperAbstract(LPCSTR section) : inherited(section) {}
 	INHERIT_ABSTRACT;
 };
 
@@ -126,7 +125,7 @@ template <typename T>
 struct CWrapperAbstractALife : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperAbstractALife<T>	self_type;
-	CWrapperAbstractALife				(LPCSTR section) : inherited(section){}
+	CWrapperAbstractALife(LPCSTR section) : inherited(section) {}
 	INHERIT_ALIFE;
 };
 
@@ -134,7 +133,7 @@ template <typename T>
 struct CWrapperAbstractDynamicALife : public T, public luabind::wrap_base {
 	typedef T								inherited;
 	typedef CWrapperAbstractDynamicALife<T>	self_type;
-	CWrapperAbstractDynamicALife		(LPCSTR section) : inherited(section){}
+	CWrapperAbstractDynamicALife(LPCSTR section) : inherited(section) {}
 	INHERIT_DYNAMIC_ALIFE;
 };
 
@@ -142,7 +141,7 @@ template <typename T>
 struct CWrapperAbstractZone : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperAbstractZone<T>		self_type;
-	CWrapperAbstractZone				(LPCSTR section) : inherited(section){}
+	CWrapperAbstractZone(LPCSTR section) : inherited(section) {}
 	INHERIT_ZONE;
 };
 
@@ -150,7 +149,7 @@ template <typename T>
 struct CWrapperAbstractCreature : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperAbstractCreature<T>	self_type;
-	CWrapperAbstractCreature			(LPCSTR section) : inherited(section){}
+	CWrapperAbstractCreature(LPCSTR section) : inherited(section) {}
 	INHERIT_CREATURE;
 };
 
@@ -158,7 +157,7 @@ template <typename T>
 struct CWrapperAbstractMonster : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperAbstractMonster<T>	self_type;
-	CWrapperAbstractMonster				(LPCSTR section) : inherited(section){}
+	CWrapperAbstractMonster(LPCSTR section) : inherited(section) {}
 	INHERIT_MONSTER;
 };
 
@@ -166,7 +165,7 @@ template <typename T>
 struct CWrapperAbstractItem : public T, public luabind::wrap_base {
 	typedef T							inherited;
 	typedef CWrapperAbstractItem<T>		self_type;
-	CWrapperAbstractItem				(LPCSTR section) : inherited(section){}
+	CWrapperAbstractItem(LPCSTR section) : inherited(section) {}
 	INHERIT_ITEM;
 };
 
@@ -191,7 +190,6 @@ struct CWrapperAbstractItem : public T, public luabind::wrap_base {
 	DEFINE_LUABIND_VIRTUAL_FUNCTION(a,b,FillProps	) \
 	DEFINE_LUABIND_VIRTUAL_FUNCTION(a,b,STATE_Write	) \
 	DEFINE_LUABIND_VIRTUAL_FUNCTION(a,b,STATE_Read	) \
-	DEFINE_LUABIND_VIRTUAL_FUNCTION(a,b,OnEvent		) \
 	DEFINE_LUABIND_VIRTUAL_FUNCTION(a,b,init		)
 
 #define luabind_virtual_alife(a,b) \
