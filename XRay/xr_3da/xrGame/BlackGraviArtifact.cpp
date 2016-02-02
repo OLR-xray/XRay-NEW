@@ -77,6 +77,11 @@ struct SRP
 	{
 		return obj==O;
 	}
+	//забыли неконстантную реализацию
+	bool operator	() (CPhysicsShellHolder* &O)
+	{
+		return obj == O;
+	}
 };
 void CBlackGraviArtefact::net_Relcase(CObject* O)
 {
