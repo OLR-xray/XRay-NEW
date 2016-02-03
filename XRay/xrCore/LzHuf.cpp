@@ -61,7 +61,7 @@ private:
 	u8*			out_end;
 	u8*			out_iterator;
 public:
-	IC int		_getb() {
+	IC u8		_getb() {
 		if (in_iterator==in_end) return EOF;
 		return *in_iterator++;
 	}
@@ -89,7 +89,7 @@ public:
 		// bitwise input/output
 		getbuf = getlen = putbuf = putlen = 0;
 	}
-	IC void		Init_Output(int _rsize) {
+	IC void		Init_Output(size_t _rsize) {
 		// output
 		out_start	= (u8*)xr_malloc(_rsize);
 		out_end		= out_start + _rsize;

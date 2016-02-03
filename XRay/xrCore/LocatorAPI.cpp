@@ -233,9 +233,8 @@ void CLocatorAPI::Register		(LPCSTR name, u32 vfs, u32 crc, u32 ptr, u32 size_re
 //		char* str		= LPSTR(I->name);
 //		xr_free			(str);
 		desc.name		= I->name;
-		*((file*)(&I)) = desc;
-//		files.erase		(I);
-//		files.insert	(desc); 
+		files.erase		(I);
+		files.insert	(desc); 
 		return;
 	}
 	else {
@@ -505,7 +504,7 @@ bool CLocatorAPI::Recurse		(const char* path)
 
 	u32				count = rec_files.size();
 	_finddata_t		*buffer = (_finddata_t*)_alloca(count*sizeof(_finddata_t));
-	std::copy		(&*rec_files.begin(),&*rec_files.end(),buffer);
+	std::copy		(rec_files.begin(),rec_files.end(),buffer);
 	rec_files.clear_not_free();
 	std::sort		(buffer, buffer + count, pred_str_ff);
 	for (_finddata_t *I = buffer, *E = buffer + count; I != E; ++I)
