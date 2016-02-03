@@ -8,6 +8,7 @@
 
 #pragma once
 
+
 template <
 	typename _path_id_type,
 	typename _index_type,
@@ -63,7 +64,7 @@ struct CVertexManagerHashFixed {
 
 #pragma pack(push,1)
 		template <typename _path_id_type>
-		struct SGraphIndexVertex : public _index_vertex<CGraphVertex,SGraphIndexVertex> {
+		struct SGraphIndexVertex : public _index_vertex<CGraphVertex, SGraphIndexVertex<_path_id_type> > {
 			CGraphVertex		*m_vertex;
 			SGraphIndexVertex	*m_next;
 			SGraphIndexVertex	*m_prev;

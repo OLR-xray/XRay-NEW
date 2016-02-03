@@ -95,7 +95,10 @@ IC	void CSmartCastStats::add					(LPCSTR from, LPCSTR to)
 	if (I == m_stats.end())
 		m_stats.insert		(temp);
 	else
-		++(*I).m_count;
+	{
+		const CStats & tmp = *I;
+		++(const_cast<CStats&>(tmp)).m_count;
+	}
 }
 
 IC	void CSmartCastStats::clear					()

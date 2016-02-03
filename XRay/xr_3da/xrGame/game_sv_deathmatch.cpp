@@ -533,7 +533,7 @@ void	game_sv_Deathmatch::SM_SwitchOnNextActivePlayer()
 	}
 	else
 	{
-		it	= PossiblePlayers[::Random.randI((int)PPlayersCount)];
+		u32 it	= PossiblePlayers[::Random.randI((int)PPlayersCount)];
 		xrClientData*	C = NULL;
 		C	= (xrClientData*)m_server->client_Get			(it);	
 		pNewObject =  Level().Objects.net_Find(C->ps->GameID);

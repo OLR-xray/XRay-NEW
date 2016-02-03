@@ -149,7 +149,7 @@ bool CLevel::net_start3				()
 		if (strstr(m_caServerOptions.c_str(), "psw=") && !strstr(m_caClientOptions.c_str(), "psw="))
 		{
 			string64	PasswordStr = "";
-			char* PSW = strstr(m_caServerOptions.c_str(), "psw=") + 4;
+			char* PSW = (char*)strstr(m_caServerOptions.c_str(), "psw=") + 4;
 			if (strchr(PSW, '/')) 
 				strncpy(PasswordStr, PSW, strchr(PSW, '/') - PSW);
 			else
@@ -164,7 +164,7 @@ bool CLevel::net_start3				()
 	if (strstr(m_caClientOptions.c_str(), "/cdkey="))
 	{
 		string64 CDKey;
-		char* start = strstr(m_caClientOptions.c_str(),"/cdkey=") +xr_strlen("/cdkey=");
+		char* start = (char*) strstr(m_caClientOptions.c_str(),"/cdkey=") +xr_strlen("/cdkey=");
 		sscanf			(start, "%[^/]",CDKey);
 		string128 cmd;
 		sprintf(cmd, "cdkey %s", _strupr(CDKey));

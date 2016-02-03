@@ -62,8 +62,8 @@ void CStalkerActionDead::initialize		()
 		
 	typedef xr_vector<CInventorySlot>	SLOTS;
 
-	SLOTS::iterator						I = object().inventory().m_slots.begin(), B = I;
-	SLOTS::iterator						E = object().inventory().m_slots.end();
+	TISlotArr::iterator						I = object().inventory().m_slots.begin(), B = I;
+	TISlotArr::iterator						E = object().inventory().m_slots.end();
 	for ( ; I != E; ++I) {
 		if ((I - B) == (int)object().inventory().GetActiveSlot())
 			continue;
@@ -89,8 +89,8 @@ void CStalkerActionDead::execute		()
 
 	typedef xr_vector<CInventorySlot>	SLOTS;
 
-	SLOTS::iterator						I = object().inventory().m_slots.begin(), B = I;
-	SLOTS::iterator						E = object().inventory().m_slots.end();
+	TISlotArr::iterator						I = object().inventory().m_slots.begin(), B = I;
+	TISlotArr::iterator						E = object().inventory().m_slots.end();
 	for ( ; I != E; ++I) {
 		if (!(*I).m_pIItem)
 			continue;

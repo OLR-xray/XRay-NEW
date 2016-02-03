@@ -14,6 +14,7 @@
 #include "script_ini_file.h"
 
 using namespace luabind;
+using namespace luabind::detail;
 
 LPCSTR get_section_name(const CSE_Abstract *abstract)
 {
@@ -114,7 +115,7 @@ void CSE_Abstract::script_register(lua_State *L)
 			.def			("STATE_Read",		&BaseType::STATE_Read, &WrapType::STATE_Read_static)
 			.def			("STATE_Write",		&BaseType::STATE_Write, &WrapType::STATE_Write_static)
 			.def			("UPDATE_Read",		&BaseType::UPDATE_Read, &WrapType::UPDATE_Read_static)
-			.def			("UPDATE_Write",		&BaseType::UPDATE_Write, &WrapType::UPDATE_Write_static)
+			.def			("UPDATE_Write",	&BaseType::UPDATE_Write, &WrapType::UPDATE_Write_static)
 //			.def(		constructor<LPCSTR>())
 	];
 }
