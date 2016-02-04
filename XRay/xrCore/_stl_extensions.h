@@ -136,8 +136,8 @@ public:
 	void	clear				()									{ clear_not_free	();			}
 #endif
 
-	const_reference operator[]	(size_type _Pos) const				{ {VERIFY(_Pos<size());} return (*(begin() + _Pos)); }
-	reference operator[]		(size_type _Pos)					{ {VERIFY(_Pos<size());} return (*(begin() + _Pos)); }
+	const_reference operator[]	(size_type _Pos) const				{ {VERIFY(_Pos<size());} return std::vector<T, allocator>::operator[] (_Pos); }
+	reference operator[]		(size_type _Pos)					{ {VERIFY(_Pos<size());} return std::vector<T, allocator>::operator[] (_Pos); }
 };
 
 // vector<bool>
