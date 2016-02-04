@@ -121,6 +121,8 @@ nextBlock:
 
 u32	mem_usage_impl	(HANDLE heap_handle, u32* pBlocksUsed, u32* pBlocksFree)
 {
+#pragma todo(fix kostyl)
+	return 0;
 	_HEAPINFO		hinfo;
 	int				heapstatus;
 	hinfo._pentry	= NULL;

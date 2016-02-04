@@ -13,7 +13,7 @@
 
 //#define trivial_encryptor	temp_stuff
 
-//#define RUSSIAN_BUILD
+#define RUSSIAN_BUILD
 
 class trivial_encryptor {
 private:
@@ -136,6 +136,7 @@ private:
 		bool trivial_encryptor::m_initialized	= false;
 #	endif // TRIVIAL_ENCRYPTOR_DECODER
 #endif // TRIVIAL_ENCRYPTOR_ENCODER
+
 
 #ifdef RUSSIAN_BUILD
 	u32	trivial_encryptor::m_table_iterations	= 2048;

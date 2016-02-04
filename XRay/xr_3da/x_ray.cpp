@@ -583,8 +583,7 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
 		sscanf					(strstr(lpCmdLine,fsgame_ltx_name)+sz,"%[^ ] ",fsgame);
 	}
 
-	//disable encryptor
-	//g_temporary_stuff			= &trivial_encryptor::decode;
+	g_temporary_stuff			= &trivial_encryptor::decode;
 
 	Core._initialize			("xray",NULL, TRUE, fsgame[0] ? fsgame : NULL);
 	InitSettings				();
