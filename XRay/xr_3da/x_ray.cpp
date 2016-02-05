@@ -529,9 +529,9 @@ int APIENTRY WinMain_impl(HINSTANCE hInstance,
 #ifndef DEDICATED_SERVER
 
 	// Check for virtual memory
-
+	/*
 	if ( IsOutOfVirtualMemory() )
-		return 0;
+		return 0;*/
 
 	// Check for another instance
 
