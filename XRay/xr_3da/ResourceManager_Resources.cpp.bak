@@ -9,6 +9,7 @@
 #endif
 #pragma warning(default:4995)
 
+#include "render.h"
 #include "ResourceManager.h"
 #include "tss.h"
 #include "blenders\blender.h"
@@ -177,8 +178,7 @@ SVS*	CResourceManager::_CreateVS		(LPCSTR _name)
 		LPD3DXSHADER_CONSTANTTABLE	pConstants	= NULL;
 		HRESULT						_hr			= S_OK;
 		string256					cname;
-		strconcat					(cname,::Render->getShaderPath(),_name,".vs");
-		FS.update_path				(cname,	"$game_shaders$", cname);
+		FS.update_path				(cname,	"$game_shaders$", strconcat(cname,::Render->getShaderPath(),_name,".vs"));
 //		LPCSTR						target		= NULL;
 
 		IReader*					fs			= FS.r_open(cname);
@@ -265,8 +265,7 @@ SPS*	CResourceManager::_CreatePS			(LPCSTR name)
 		// Open file
 		includer					Includer;
 		string256					cname;
-		strconcat					(cname,::Render->getShaderPath(),name,".ps");
-		FS.update_path				(cname,	"$game_shaders$", cname);
+		FS.update_path				(cname,	"$game_shaders$", strconcat(cname,::Render->getShaderPath(),name,".ps"));
 
 		// duplicate and zero-terminate
 		IReader*		R		= FS.r_open(cname);
@@ -294,8 +293,6 @@ SPS*	CResourceManager::_CreatePS			(LPCSTR name)
 		_hr = ::Render->shader_compile	(name,data,size, NULL, &Includer, c_entry, c_target, D3DXSHADER_DEBUG | D3DXSHADER_PACKMATRIX_ROWMAJOR /*| D3DXSHADER_PREFER_FLOW_CONTROL*/, &pShaderBuf, &pErrorBuf, NULL);
 		//_hr = D3DXCompileShader		(text,text_size, NULL, &Includer, c_entry, c_target, D3DXSHADER_DEBUG | D3DXSHADER_PACKMATRIX_ROWMAJOR, &pShaderBuf, &pErrorBuf, NULL);
 		xr_free						(data);
-		
-		LPCSTR last_error = "";
 
 		if (SUCCEEDED(_hr))
 		{
@@ -315,25 +312,12 @@ SPS*	CResourceManager::_CreatePS			(LPCSTR name)
 			else	_hr = E_FAIL;
 		}else
 		{
-			last_error = (LPCSTR)pErrorBuf->GetBufferPointer();
-			Msg("error is %s", last_error);
+			Msg("error is %s", (LPCSTR)pErrorBuf->GetBufferPointer());	
 		}
-
-
-		if (FAILED(_hr))
-			Msg			("Can't compile shader %s",name);
-		
-		string1024 buff;
-
-		if (xr_strlen(last_error))
-			sprintf_s(buff, 1023, "ќшибка компил€ции шейдера %s:\n %s ", name, last_error);
-		else
-			sprintf_s(buff, 1023, "ќшибка компил€ции шейдера %s. ¬озможна ошибка в скрипте, или\n видеокарта не поддерживает пиксельные шейдеры 1.1", name);
-		
-		pConstants = NULL;
-		_RELEASE(pShaderBuf);
-		_RELEASE(pErrorBuf);
-		
+		_RELEASE		(pShaderBuf);
+		_RELEASE		(pErrorBuf);
+		pConstants		= NULL;
+		R_CHK			(_hr);
 		return			_ps;
 	}
 }

@@ -17,7 +17,7 @@ bool pgd_find_pred	(const PS::CPGDef* a, 	LPCSTR b)				{	return xr_strcmp(a->m_N
 //----------------------------------------------------
 void CPSLibrary::OnCreate()
 {
-	string_path fn;
+	string256 fn;
     FS.update_path(fn,_game_data_,PSLIB_FILENAME);
 	if (FS.exist(fn)){
     	if (!Load(fn)) Msg("PS Library: Unsupported version.");

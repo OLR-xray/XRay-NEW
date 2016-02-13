@@ -453,12 +453,9 @@ HRESULT	CRender::shader_compile			(
 {
 	D3DXMACRO						defines			[128];
 	int								def_it			= 0;
-	CONST D3DXMACRO*                pDefines		= (CONST D3DXMACRO*)	_pDefines;
+    CONST D3DXMACRO*                pDefines		= (CONST D3DXMACRO*)	_pDefines;
 	char							c_smapsize		[32];
 	char							c_gloss			[32];
-
-//	Msg("%s.%s", name, pTarget);
-
 	if (pDefines)	{
 		// transfer existing defines
 		for (;;def_it++)	{
@@ -579,15 +576,10 @@ HRESULT	CRender::shader_compile			(
 	}
 
 	LPD3DXINCLUDE                   pInclude		= (LPD3DXINCLUDE)		_pInclude;
-	LPD3DXBUFFER*                   ppShader		= (LPD3DXBUFFER*)		_ppShader;
-	LPD3DXBUFFER*                   ppErrorMsgs		= (LPD3DXBUFFER*)		_ppErrorMsgs;
-	LPD3DXCONSTANTTABLE*            ppConstantTable	= (LPD3DXCONSTANTTABLE*)_ppConstantTable;
-	
-#ifdef	D3DXSHADER_USE_LEGACY_D3DX9_31_DLL	//	December 2006 and later
-	HRESULT		_result	= D3DXCompileShader(pSrcData,SrcDataLen,defines,pInclude,pFunctionName,pTarget,Flags|D3DXSHADER_USE_LEGACY_D3DX9_31_DLL,ppShader,ppErrorMsgs,ppConstantTable);
-#else
+    LPD3DXBUFFER*                   ppShader		= (LPD3DXBUFFER*)		_ppShader;
+    LPD3DXBUFFER*                   ppErrorMsgs		= (LPD3DXBUFFER*)		_ppErrorMsgs;
+    LPD3DXCONSTANTTABLE*            ppConstantTable	= (LPD3DXCONSTANTTABLE*)_ppConstantTable;
 	HRESULT		_result	= D3DXCompileShader(pSrcData,SrcDataLen,defines,pInclude,pFunctionName,pTarget,Flags,ppShader,ppErrorMsgs,ppConstantTable);
-#endif
 	if (SUCCEEDED(_result) && o.disasm)
 	{
 		ID3DXBuffer*		code	= *((LPD3DXBUFFER*)_ppShader);

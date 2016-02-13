@@ -98,22 +98,14 @@ IRender_Visual*	CModelPool::Instance_Duplicate	(IRender_Visual* V)
 IRender_Visual*	CModelPool::Instance_Load		(const char* N, BOOL allow_register)
 {
 	IRender_Visual	*V;
-	string_path		fn;
-	string_path		name;
-
-	strcpy_s(name, sizeof(name), N);
-	// alpet: для унификации имен клонов ресурсов
-	char *sub = strstr(name, "|");
-	if (sub)
-		sub[0] = 0;
+	string512		fn;
+	string512		name;
 
 	// Add default ext if no ext at all
-	if (0 == strext(name))	
-		strcat_s (name, sizeof(name), ".ogf");
-	
+	if (0==strext(N))	strconcat	(name,N,".ogf");
+	else				strcpy		(name,N);
 
-
-	// Load data from MESHES or LEVEL	
+	// Load data from MESHES or LEVEL
 	if (!FS.exist(N))	{
 		if (!FS.exist(fn, "$level$", name))
 			if (!FS.exist(fn, "$game_meshes$", name)){
@@ -151,6 +143,8 @@ IRender_Visual*	CModelPool::Instance_Load(LPCSTR name, IReader* data, BOOL allow
 {
 	IRender_Visual	*V;
 	
+	// Actual loading
+	// if (bLogging)	Msg		("- Uncached model loading: %s",name);
 	ogf_header			H;
 	data->r_chunk_safe	(OGF_HEADER,&H,sizeof(H));
 	V = Instance_Create (H.type);
@@ -200,10 +194,8 @@ void CModelPool::Destroy()
 	Registry.clear();
 */
 	// Base/Reference
-	xr_vector<ModelDef>::iterator	I = Models.begin();
-	xr_vector<ModelDef>::iterator	E = Models.end();
-	for (; I!=E; I++)
-	{
+	xr_vector<ModelDef>::iterator	I;
+	for (I=Models.begin(); I!=Models.end(); I++){
 		I->model->Release();
 		xr_delete(I->model);
 	}
@@ -290,12 +282,7 @@ IRender_Visual* CModelPool::CreateChild(LPCSTR name, IReader* data)
 
 	// 1. Search for already loaded model
 	IRender_Visual* Base	= Instance_Find(low_name);
-//.	if (0==Base) Base	 	= Instance_Load(name,data,FALSE);
-	if(0==Base)
-	{
-		if (data)		Base = Instance_Load	(low_name,data,FALSE);
-		else			Base = Instance_Load	(low_name,FALSE);
-	}
+	if (0==Base) Base	 	= Instance_Load(name,data,FALSE);
 
     IRender_Visual* Model	= bAllowChildrenDuplicate?Instance_Duplicate(Base):Base;
     return					Model;
@@ -398,8 +385,8 @@ void CModelPool::Prefetch()
 	string256 section;
 	strconcat				(section,"prefetch_visuals_",g_pGamePersistent->m_game_params.m_game_type);
 	CInifile::Sect& sect	= pSettings->r_section(section);
-	for (CInifile::SectIt I=sect.Data.begin(); I!=sect.Data.end(); I++)	{
-		const CInifile::Item& item= *I;
+	for (CInifile::SectIt I=sect.begin(); I!=sect.end(); I++)	{
+		CInifile::Item& item= *I;
 		IRender_Visual* V	= Create(item.first.c_str());
 		Delete				(V,FALSE);
 	}

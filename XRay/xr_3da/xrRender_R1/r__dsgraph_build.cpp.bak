@@ -52,8 +52,9 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 	// a) Allow to optimize RT order
 	// b) Should be rendered to special distort buffer in another pass
 
-	VERIFY						(pVisual->shader._get());
-	ShaderElement*		sh_d	= &*pVisual->shader->E[4];
+#pragma message ("тут был просто shader")
+	VERIFY						(pVisual->shader_ref._get());
+	ShaderElement*		sh_d	= &*pVisual->shader_ref->E[4];
 	if (RImplementation.o.distortion && sh_d && sh_d->flags.bDistort && pmask[sh_d->flags.iPriority/2]) {
 		mapSorted_Node* N		= mapDistort.insertInAnyWay	(distSQ);
 		N->val.ssa				= SSA;
@@ -149,7 +150,7 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic	(IRender_Visual *pVisual, Fve
 		N->val.pObject			= RI.val_pObject;
 		N->val.pVisual			= pVisual;
 		N->val.Matrix			= *RI.val_pTransform;
-		N->val.se				= &*pVisual->shader_ref->E[4];		// 4=L_special
+		N->val.se				= &*pVisual->shader->E[4];		// 4=L_special
 	}
 	if (sh->flags.bWmark	&& pmask_wmark)	{
 		mapSorted_Node* N		= mapWmark.insertInAnyWay		(distSQ);
@@ -253,7 +254,7 @@ void R_dsgraph_structure::r_dsgraph_insert_static	(IRender_Visual *pVisual)
 		N->val.pObject			= NULL;
 		N->val.pVisual			= pVisual;
 		N->val.Matrix			= Fidentity;
-		N->val.se				= &*pVisual->shader_ref->E[4];		// 4=L_special
+		N->val.se				= &*pVisual->shader->E[4];		// 4=L_special
 	}
 	if (sh->flags.bWmark	&& pmask_wmark)	{
 		mapSorted_Node* N		= mapWmark.insertInAnyWay		(distSQ);
@@ -338,15 +339,13 @@ void CRender::add_leafs_Dynamic	(IRender_Visual *pVisual)
 			// Add all children, doesn't perform any tests
 			CKinematics * pV			= (CKinematics*)pVisual;
 			BOOL	_use_lod			= FALSE	;
-			if (pV->m_lod)				
-			{
+			if (pV->m_lod)				{
 				Fvector							Tpos;	float		D;
 				val_pTransform->transform_tiny	(Tpos, pV->vis.sphere.P);
 				float		ssa		=	CalcSSA	(D,Tpos,pV->vis.sphere.R/2.f);	// assume dynamics never consume full sphere
-				if (ssa<r_ssaLOD_A)	_use_lod	= TRUE;
+				if (ssa<r_ssaLOD_A)	_use_lod	= TRUE		;
 			}
-			if (_use_lod)				
-			{
+			if (_use_lod)				{
 				add_leafs_Dynamic			(pV->m_lod)		;
 			} else {
 				pV->CalculateBones			(TRUE);
@@ -468,16 +467,13 @@ BOOL CRender::add_Dynamic(IRender_Visual *pVisual, u32 planes)
 		{
 			// Add all children, doesn't perform any tests
 			PS::CParticleGroup* pG = (PS::CParticleGroup*)pVisual;
-			for (PS::CParticleGroup::SItemVecIt i_it=pG->items.begin(); i_it!=pG->items.end(); i_it++)
-			{
+			for (PS::CParticleGroup::SItemVecIt i_it=pG->items.begin(); i_it!=pG->items.end(); i_it++){
 				PS::CParticleGroup::SItem&			I		= *i_it;
-				if (fcvPartial==VIS) 
-				{
+				if (fcvPartial==VIS) {
 					if (I._effect)		add_Dynamic				(I._effect,planes);
 					for (xr_vector<IRender_Visual*>::iterator pit = I._children_related.begin();	pit!=I._children_related.end(); pit++)	add_Dynamic(*pit,planes);
 					for (xr_vector<IRender_Visual*>::iterator pit = I._children_free.begin();		pit!=I._children_free.end();	pit++)	add_Dynamic(*pit,planes);
-				} else 
-				{
+				} else {
 					if (I._effect)		add_leafs_Dynamic		(I._effect);
 					for (xr_vector<IRender_Visual*>::iterator pit = I._children_related.begin();	pit!=I._children_related.end(); pit++)	add_leafs_Dynamic(*pit);
 					for (xr_vector<IRender_Visual*>::iterator pit = I._children_free.begin();		pit!=I._children_free.end();	pit++)	add_leafs_Dynamic(*pit);
@@ -491,8 +487,7 @@ BOOL CRender::add_Dynamic(IRender_Visual *pVisual, u32 planes)
 			FHierrarhyVisual* pV = (FHierrarhyVisual*)pVisual;
 			I = pV->children.begin	();
 			E = pV->children.end	();
-			if (fcvPartial==VIS) 
-			{
+			if (fcvPartial==VIS) {
 				for (; I!=E; I++)	add_Dynamic			(*I,planes);
 			} else {
 				for (; I!=E; I++)	add_leafs_Dynamic	(*I);
@@ -505,18 +500,15 @@ BOOL CRender::add_Dynamic(IRender_Visual *pVisual, u32 planes)
 			// Add all children, doesn't perform any tests
 			CKinematics * pV			= (CKinematics*)pVisual;
 			BOOL	_use_lod			= FALSE	;
-			if (pV->m_lod)				
-			{
+			if (pV->m_lod)				{
 				Fvector							Tpos;	float		D;
 				val_pTransform->transform_tiny	(Tpos, pV->vis.sphere.P);
 				float		ssa		=	CalcSSA	(D,Tpos,pV->vis.sphere.R/2.f);	// assume dynamics never consume full sphere
 				if (ssa<r_ssaLOD_A)	_use_lod	= TRUE		;
 			}
-			if (_use_lod)
-			{
+			if (_use_lod)				{
 				add_leafs_Dynamic			(pV->m_lod)		;
-			} else 
-			{
+			} else {
 				pV->CalculateBones			(TRUE);
 				pV->CalculateWallmarks		();		//. bug?
 				I = pV->children.begin		();
