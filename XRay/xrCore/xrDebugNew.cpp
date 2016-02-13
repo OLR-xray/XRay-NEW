@@ -252,7 +252,9 @@ void xrDebug::backend	(const char *expression, const char *description, const ch
 				ignore_always	= true;
 				break;
 			}
-			default : NODEFAULT;
+			default:
+				DEBUG_INVOKE;
+				break;;
 		}
 #	else // USE_OWN_ERROR_MESSAGE_WINDOW
 #		ifdef USE_BUG_TRAP
