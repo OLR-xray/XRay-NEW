@@ -57,6 +57,29 @@
 	<string id="ui_st_conn_sess_full">
 		<text>Ошибка соединения: сервер заполнен</text>
 	</string>
+	<!-- FIX BY NUMMER -->
+	<string id="ui_st_conn_version_differs">
+		<text>Ошибка соединения: Отличаются версии.</text>
+	</string>
+	<string id="ui_st_conn_cdkey_invalid">
+		<text>Ошибка соединения: Неверный CD-Key.</text>
+	</string>
+	<string id="ui_st_conn_cdkey_in_use">
+		<text>Ошибка соединения: Такой CD-Key уже используется.</text>
+	</string>
+	<string id="ui_st_conn_cdkey_disabled">
+		<text>Ошибка соединения: Ваш CD-Key заблокирован. Свяжитесь со службой поддержки.</text>
+	</string>
+	<string id="ui_st_conn_no_new_patch">
+		<text>Нет новых патчей</text>
+	</string>
+	<string id="ui_st_patch_download_error">
+		<text>Невозможно скачать патч.</text>
+	</string>
+	<string id="ui_st_patch_download_success">
+		<text>Патч успешно скачан. Установить?</text>
+	</string>
+	<!-- END FIXES -->
 	<string id="ui_st_days">
 		<text>дн.</text>
 	</string>
