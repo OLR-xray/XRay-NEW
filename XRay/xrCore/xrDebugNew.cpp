@@ -254,7 +254,7 @@ void xrDebug::backend	(const char *expression, const char *description, const ch
 			}
 			default:
 				DEBUG_INVOKE;
-				break;;
+				break;
 		}
 #	else // USE_OWN_ERROR_MESSAGE_WINDOW
 #		ifdef USE_BUG_TRAP
